@@ -299,6 +299,8 @@
             const t = errText(data).toLowerCase();
             if (t.includes("already") || t.includes("registered") || t.includes("exists")) {
               registerErr.textContent = "Konto z tym adresem już istnieje.";
+            } else if (t.includes("rate limit")) {
+              registerErr.textContent = "Zbyt wiele prób w krótkim czasie — odczekaj chwilę i spróbuj ponownie.";
             } else {
               registerErr.textContent = errText(data) || "Nie udało się utworzyć konta.";
             }
